@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>طارق الرفاعي | السيرة الذاتية</title>
+    <!-- Google Fonts: خط حديث وجميل يدعم العربية -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (مجاني للأيقونات) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f9fc;  /* خلفية هادئة فاتحة جدًا */
+            font-family: 'Cairo', sans-serif;
+            color: #1e2a3e;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        /* الحاوية الرئيسية */
+        .cv-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), 0 5px 12px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            padding: 2rem 2rem 1.8rem;
+            transition: all 0.2s ease;
+        }
+
+        /* تنسيق القسم العلوي (صورة دائرية + معلومات تعريفية) */
+        .profile-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e2edf2;
+            padding-bottom: 2rem;
+        }
+
+        /* جهة الشمال: الصورة الدائرية */
+        .profile-pic {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-pic img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #ffffff;
+            background-color: #dbedf2;
+            transition: transform 0.2s;
+        }
+        .profile-pic img:hover {
+            transform: scale(1.02);
+        }
+
+        /* جهة اليمين: "معرف عني" معلومات التواصل */
+        .contact-info {
+            flex: 1;
+            background: #fefefe;
+            padding: 1.2rem 1.8rem;
+            border-radius: 28px;
+            background: #f9fdfe;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), inset 0 1px 0 #ffffff;
+            border: 1px solid #e9f0f3;
+        }
+        .contact-info h2 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #1c4e6e;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+        .contact-info .tagline {
+            font-size: 0.9rem;
+            color: #5b7a95;
+            margin-bottom: 1rem;
+            border-right: 3px solid #9bc2d4;
+            padding-right: 0.75rem;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            color: #2c4b66;
+            flex-wrap: wrap;
+        }
+        .info-item i {
+            width: 28px;
+            color: #5293b0;
+            font-size: 1.2rem;
+        }
+        .info-item span {
+            font-weight: 500;
+        }
+        .phone-number {
+            direction: ltr;
+            unicode-bidi: embed;
+            font-family: monospace;
+            letter-spacing: 0.5px;
+        }
+
+        /* الأقسام العامة */
+        .section {
+            margin-bottom: 2rem;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 0 0.2rem;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #225b7a;
+            margin-bottom: 1.2rem;
+            border-right: 5px solid #aacbd9;
+            padding-right: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title i {
+            font-size: 1.5rem;
+            color: #4c89a6;
+        }
+
+        /* بطاقة التحصيل العلمي + الإضافات */
+        .education-card {
+            background: #fafeff;
+            border-radius: 24px;
+            padding: 1.3rem 1.8rem;
+            border: 1px solid #e2f0f5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .edu-item {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #d4e6ed;
+        }
+        .edu-item strong {
+            color: #1f6e8c;
+            font-size: 1.1rem;
+        }
+        .extra-note {
+            background: #eef5f8;
+            padding: 0.8rem 1.2rem;
+            border-radius: 20px;
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            color: #1e5a74;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* نموذج الموقع الإلكتروني – مربع جميل الحواف */
+        .website-form-box {
+            background: #ffffff;
+            border: 1px solid #d9e8ef;
+            border-radius: 28px;
+            padding: 1.5rem 1.8rem;
+            margin: 1rem 0 1.5rem;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s;
+        }
+        .website-form-box h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #226680;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        .form-group input {
+            flex: 3;
+            min-width: 200px;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #cbdbe2;
+            border-radius: 50px;
+            font-family: 'Cairo', monospace;
+            font-size: 0.95rem;
+            background: #fefefe;
+            transition: 0.2s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #6ea8c2;
+            box-shadow: 0 0 0 3px rgba(106, 167, 192, 0.2);
+        }
+        .form-group button {
+            background: #7fadc2;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .form-group button:hover {
+            background: #5b8da5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+        .helper-text {
+            font-size: 0.75rem;
+            color: #7f9cad;
+            margin-top: 0.6rem;
+        }
+
+        /* المهارات: الخبرات في البرمجة واللغات */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .skill-cat {
+            background: #f9fefc;
+            border-radius: 20px;
+            padding: 1rem 1.3rem;
+            border: 1px solid #e2edf0;
+        }
+        .skill-cat h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1a6c8a;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px dotted #c7dfe8;
+            padding-bottom: 6px;
+        }
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        .skill-badge {
+            background: white;
+            border: 1px solid #bed7e2;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #2a617b;
+        }
+        .lang-level {
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .lang-level span {
+            font-weight: 600;
+            color: #1e5a6e;
+        }
+
+        /* رسالة الشكر والوظيفة */
+        .thankyou-message {
+            text-align: center;
+            background: #eef5f9;
+            padding: 1.2rem;
+            border-radius: 60px;
+            margin: 1.6rem 0 1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1f5b78;
+            box-shadow: inset 0 1px 2px #fff, 0 4px 8px rgba(0,0,0,0.02);
+        }
+        .thankyou-message i {
+            margin: 0 5px;
+            color: #5f9db8;
+        }
+
+        /* تذييل الصفحة مع معرف الصفحة */
+        .footer-id {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #daeef5;
+            font-size: 0.9rem;
+            color: #588aa3;
+            letter-spacing: 0.5px;
+        }
+        .footer-id a {
+            text-decoration: none;
+            color: #216f8f;
+            font-weight: 600;
+        }
+
+        /* استجابة للأجهزة الصغيرة */
+        @media (max-width: 720px) {
+            .cv-container {
+                padding: 1.5rem;
+            }
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                width: 100%;
+                text-align: center;
+            }
+            .info-item {
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .form-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .form-group button {
+                justify-content: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .profile-pic img {
+                width: 130px;
+                height: 130px;
+            }
+        }
+        /* تأثيرات بسيطة */
+        a, button {
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    <!-- القسم العلوي: صورة دائرية (يسار) + معرف عني (يمين) -->
+    <div class="profile-header">
+        <!-- جهة الشمال: صورة دائرية (باستخدام ui-avatars لإنشاء صورة رمزية بالاسم) -->
+        <div class="profile-pic">
+            <img src="https://ui-avatars.com/api/?background=98c1d9&color=fff&rounded=true&size=160&fontsize=0.65&name=Tariq+R" 
+                 alt="صورة طارق الرفاعي الشخصية" 
+                 title="طارق الرفاعي">
+        </div>
+
+        <!-- جهة اليمين: معرف شخصي كامل (العمر، السكن، الرقم) -->
+        <div class="contact-info">
+            <h2>طارق الرفاعي</h2>
+            <div class="tagline">مطور برمجيات طموح | خريج دبلوم هندسة البرمجيات</div>
+            <div class="info-item">
+                <i class="fas fa-user-circle"></i>
+                <span>العمر: 23 سنة</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-home"></i>
+                <span>السكن: السيدة زينب - الذيابية</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <span class="phone-number">📞 0991809845</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- القسم الثاني: التحصيل العلمي (ثانوية + دبلوم + إضافات) -->
+    <div class="section">
+        <div class="section-title">
+            <i class="fas fa-graduation-cap"></i>
+            <span>تحصيلي العلمي والإضافات</span>
+        </div>
+        <div class="education-card">
+            <div class="edu-item">
+                <strong>📘 الثانوية العامة (فرع الأدبي)</strong> <br>
+                معدل ممتاز، تخصص أدبي.
+            </div>
+            <div class="edu-item">
+                <strong>🎓 دبلوم هندسة البرمجيات</strong> <br>
+                الجامعة الأردنية الهاشمية – مدة الدبلوم: سنة كاملة (برنامج مكثف).
+                <br>
+                <span style="font-size:0.85rem; color:#4f7a92;">✓ شمل تطوير الويب، قواعد البيانات، أساسيات البرمجة الكائنية.</span>
+            </div>
+            <!-- بعض الإضافات (لديك الصلاحية للإضافة) -->
+            <div class="extra-note">
+                <i class="fas fa-plus-circle"></i> إضافات تمت بصلاحية المصمم: 
+                حضرت دورة "أساسيات تطوير التطبيقات" من منصة إدراك، وشاركت في ورشة عمل "مقدمة في الذكاء الاصطناعي". 
+                كما أنني أستمر في تطوير مشاريع شخصية لتعزيز خبرتي العملية.
+            </div>
+        </div>
+    </div>
+
+    <!-- نموذج الموقع الإلكتروني بشكل مربع بحواف جميلة -->
+    <div class="website-form-box">
+        <h3><i class="fas fa-globe"></i> أضف موقعك الإلكتروني</h3>
+        <div class="form-group">
+            <input type="url" id="websiteUrl" placeholder="https://example.com أو موقعك الشخصي" 
+                   value="https://tareq-portfolio.example.com">
+            <button id="openSiteBtn"><i class="fas fa-external-link-alt"></i> فتح الموقع / إضافة</button>
+        </div>
+        <div class="helper-text">
+            <i class="fas fa-info-circle"></i> يمكنك إضافة رابط موقعك الإلكتروني (محفظة أعمال، مدونة، مشروع) ثم الضغط على الزر لفتحه في تبويب جديد.
+        </div>
+    </div>
+
+    <!-- قسم التخصص في الدبلوم: خبرات لغات البرمجة واللغات -->
+    <div class="section">
+        <div class="section-title">
+            <i class="fas fa-laptop-code"></i>
+            <span>خبراتي البرمجية واللغوية</span>
+        </div>
+        <div class="skills-grid">
+            <!-- خبرات لغات البرمجة -->
+            <div class="skill-cat">
+                <h4><i class="fab fa-python"></i> لغات البرمجة والتقنيات</h4>
+                <div class="skill-items">
+                    <span class="skill-badge">HTML5 & CSS3</span>
+                    <span class="skill-badge">JavaScript (ES6+)</span>
+                    <span class="skill-badge">Python (أساسيات)</span>
+                    <span class="skill-badge">Java (مقدمة)</span>
+                    <span class="skill-badge">SQL / MySQL</span>
+                    <span class="skill-badge">Git & GitHub</span>
+                    <span class="skill-badge">React.js (مبتدئ)</span>
+                </div>
+                <div style="margin-top: 12px; font-size:0.85rem; color:#436d84;">
+                    <i class="fas fa-check-circle"></i> خبرة في بناء صفحات ويب تفاعلية، قواعد بيانات بسيطة، وإدارة المشاريع باستخدام Git.
+                </div>
+            </div>
+            <!-- قسم اللغات: العربية الأم + الإنجليزية -->
+            <div class="skill-cat">
+                <h4><i class="fas fa-language"></i> المهارات اللغوية</h4>
+                <div class="lang-level">
+                    <span>🇸🇦 اللغة العربية:</span> لغة أم (إتقان تام قراءة وكتابة ومحادثة).
+                </div>
+                <div class="lang-level" style="margin-top: 12px;">
+                    <span>🇬🇧 اللغة الإنجليزية:</span> مستوى متوسط (قراءة وكتابة جيد، فهم النصوص التقنية، محادثة أساسية).
+                </div>
+                <div class="skill-items" style="margin-top: 14px;">
+                    <span class="skill-badge">قراءة تقنية 🧠</span>
+                    <span class="skill-badge">كتابة تقارير ✍️</span>
+                    <span class="skill-badge">فهم الوثائق 📄</span>
+                </div>
+                <div class="helper-text" style="margin-top: 10px;">
+                    * أسعى لتطوير اللغة الإنجليزية باستمرار للوصول إلى مستوى متقدم.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- عبارة أتمنى الحصول على الوظيفة وشكراً لكم -->
+    <div class="thankyou-message">
+        <i class="fas fa-heart" style="color:#92bfd6;"></i> 
+        أتمنى الحصول على الوظيفة وشكراً لكم على وقتكم وتفهمكم 
+        <i class="fas fa-smile-wink"></i>
+    </div>
+
+    <!-- تذييل الصفحة مع @معرف الصفحه (على حسب الاسم) -->
+    <div class="footer-id">
+        <i class="fab fa-twitter"></i> <i class="fas fa-at"></i> معرف الصفحة: 
+        <a href="#" style="cursor:default;">@Tariq_AlRefai_CV</a> 
+        | <i class="fas fa-code"></i>  طارق الرفاعي - سيرة ذاتية تفاعلية
+    </div>
+</div>
+
+<!-- JS بسيط للنموذج: فتح الموقع الإلكتروني المُضاف -->
+<script>
+    (function() {
+        const openBtn = document.getElementById('openSiteBtn');
+        const urlInput = document.getElementById('websiteUrl');
+
+        // دالة لفتح الرابط بطريقة آمنة
+        function openWebsite() {
+            let rawUrl = urlInput.value.trim();
+            if (!rawUrl) {
+                alert("الرجاء إدخال رابط موقعك الإلكتروني أولاً.");
+                return;
+            }
+
+            // التأكد من أن الرابط يبدأ بـ http:// أو https://
+            let finalUrl = rawUrl;
+            if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://')) {
+                finalUrl = 'https://' + finalUrl;
+            }
+
+            // التحقق البسيط من صحة الرابط (يحاول فتحه بنافذة جديدة)
+            try {
+                // اختبار إنشاء URL للتأكد من صيغة الرابط (ليس مطلقاً لكن متساهل)
+                new URL(finalUrl);
+                window.open(finalUrl, '_blank', 'noopener,noreferrer');
+            } catch (e) {
+                alert("الرابط الذي أدخلته غير صالح. تأكد من كتابته بشكل صحيح مثل: https://example.com");
+            }
+        }
+
+        if (openBtn) {
+            openBtn.addEventListener('click', openWebsite);
+        }
+
+        // إضافة حدث عند الضغط على "Enter" في حقل الإدخال
+        if (urlInput) {
+            urlInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    openWebsite();
+                }
+            });
+        }
+
+        // نص افتراضي قابل للتعديل ولإضافة موقع حقيقي
+        console.log("جاهز! نموذج إضافة الموقع يعمل بشكل آمن.");
+    })();
+</script>
+</body>
+</html>
